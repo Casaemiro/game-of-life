@@ -1,34 +1,13 @@
-// let table = document.getElementById("table");
-
-// let cell = document.createTextNode("");
-
-
-// let board = Array.from(Array(numOfRows), () => new Array(numOfRows));
-
-
-// for(let i=0; i<board.length; i++){
-//     row = document.createElement("tr");
-//     table.appendChild(row);
-//     for(let j=0; j<board.length; j++){   
-//          tdata = document.createElement("td");
-//          tdata.appendChild(cell);
-
-//          row.appendChild(tdata);
-//         //  board[i][j]. = "0";
-
-//     }
-   
-// }
-
-// ``
 //create array of iDs from 1 to numOfCells//___________________________________________________________________________________________
-let id = 1;
-let whileTrack = 0
-let cellIds = []
-let numOfRows = 50;
-let numOfRowsCurr = numOfRows + 2;
-let numOfCells = numOfRows**2
-let numOfCellsCurr = numOfRowsCurr**2
+// let id = 1;
+// let whileTrack = 0
+// let cellIds = []
+// let numOfRows = 50;
+// let numOfRowsCurr = numOfRows + 2;
+// let numOfCells = numOfRows**2
+// let numOfCellsCurr = numOfRowsCurr**2
+
+import {id,whileTrack,cellIds,numOfRows,numOfRowsCurr,numOfCells,numOfCellsCurr} from '../model.js';
 
 for(let i = 0; i < numOfRows;i++){
     for(let j = 0; j < numOfRows; j++){
@@ -42,15 +21,11 @@ console.log(cellIds)
 let cells = ""
 for(let i = 0; i < numOfRows;i++){
     
-   let tbody = document.getElementById("tbody")//to bve refactored
+   let tbody = document.getElementById("tbody")//to be refactored
     tbody.innerHTML += "<tr>" + "<td></td>".repeat(numOfRows) + "</tr>"
 }
 let tbody = document.getElementById("tbody")
-// let arr = body.children;
-// console.log(arr)
-function delay(time){
-    return new Promise(resolve => setTimeout(resolve, time));
-}
+
 let tempid = 1;
 for(let i = 0; i < numOfRows;i++){
     for(let j = 0; j < numOfRows;j++){
@@ -59,6 +34,7 @@ cell.style.backgroundColor = "green"
 cell.setAttribute("id", tempid)//Assign ID dynamically from 1 to numOfCells
 
 //create click even for each cell______________________________________________________________________________
+
 const btn = document.getElementById(tempid);
 
 btn.addEventListener('click', function onClick(event) {
@@ -78,13 +54,6 @@ tempid++;
 const start = document.getElementById("start_btn");
 
 start.addEventListener('click', function onClick(event) {
-    // let cellCurrStates = []
-    // console.log("line 78 cell current state", cellCurrStates)
-    // let cellNextStates = []
-    
-    // console.log("line 80 cell next state", cellNextStates)
-    let num = 1;
-    let counter = 1
     whileTrack = 0
    
     function automateClick(){setTimeout(function(){
@@ -171,7 +140,7 @@ for(let i = 1; i <= numOfCells;i++){
         return 0
     }
     automateClick()
-    }, 500)}
+    }, 100)}
     automateClick()
 });
 
@@ -198,7 +167,6 @@ for(let i = 1; i <= numOfCells;i++){
         temp.style.backgroundColor = "green"
     }
 }
-    //console.log(cellCurrStates)
 });
 
 //reset Actions//________________________________________________
@@ -221,28 +189,10 @@ for(let i = 1; i <= numOfCells;i++){
         temp.style.backgroundColor = "green"
     }
 }
-    //console.log(cellCurrStates)
     whileTrack = 1
 });
 const stopB = document.getElementById("stop_btn");
 
 stopB.addEventListener('click', function onClick(event) {
-// let cellCurrStates = []
-// let cellNextStates = []
-// for(let i = 1; i <= numOfCells;i++){
-//     let trackCurrState = i + numOfRowsCurr + (Math.floor((i - 1)/numOfRows))*(2)
-//     cellNextStates[trackCurrState] = 0
-// }
-//using Next state to change collor(applying state)
-// for(let i = 1; i <= numOfCells;i++){
-//     let trackCurrState = i + numOfRowsCurr + (Math.floor((i - 1)/numOfRows))*(2)
-//     let temp = document.getElementById(i)
-//     if(cellNextStates[trackCurrState] == 1){
-//         temp.style.backgroundColor = "yellow"
-//     }else{
-//         temp.style.backgroundColor = "green"
-//     }
-// }
-    //console.log(cellCurrStates)
     whileTrack = 1
 });
